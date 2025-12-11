@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export async function loginService({ id, email, password }) {
-  const res = await fetch("http://localhost:3000/auth/login", {
+  const res = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -11,7 +13,7 @@ export async function loginService({ id, email, password }) {
 }
 
 export async function logoutService() {
-  const res = await fetch("http://localhost:3000/auth/logout", {
+  const res = await fetch(`${API_URL}/auth/logout`, {
     method: "POST",
     credentials: "include"
   });
@@ -21,7 +23,7 @@ export async function logoutService() {
 }
 
 export async function checkSessionService() {
-  const res = await fetch("http://localhost:3000/auth/me", {
+  const res = await fetch(`${API_URL}/auth/me`, {
     method: "GET",
     credentials: "include"
   });
@@ -29,4 +31,3 @@ export async function checkSessionService() {
   const data = await res.json();
   return { ok: res.ok, data };
 }
-
