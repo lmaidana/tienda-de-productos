@@ -5,7 +5,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export async function fetchProducts() {
   try {
-    const res = await fetch(API_URL);
+    const res = await fetch(`${API_URL}/products`);;
     if (!res.ok) {
       const error = new Error(Messages.UNKNOWN_ERROR);
       error.type = ErrorType.UNKNOWN;
